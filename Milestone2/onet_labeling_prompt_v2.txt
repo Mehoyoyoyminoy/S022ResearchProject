@@ -1,0 +1,18 @@
+Read the attached O*NET CSV. Score each occupation independently on five categories. Use the occupation description and task statements in llm_text as evidence. Use the occupation code to identify the row. Do not infer duties from the title or outside knowledge.
+
+For each category, enter 1 if a stated duty meets the definition. Enter 0 if the text gives enough information to assess the category and provides no qualifying duty. Leave the cell empty if there is too little information to assess it. A catch-all description without substantive duties is insufficient for all five categories. Multiple categories can apply to the same duty.
+
+technical: Uses a specialized tool, machine, system, software package, or procedure. Routine computer and audiovisual use and routine administration of prepared tests do not qualify on their own. Teaching a specialized subject or saying the worker conducts research does not establish that they personally apply a specialized method. Look for a stated method, such as performing statistical modeling, operating scientific instruments, or applying a named clinical or engineering procedure.
+
+analytical: Interprets evidence, diagnoses a problem, compares options, or applies judgment to reach a decision. This includes synthesizing information for a conclusion or making an explicit design judgment. Looking up facts, recording information, or following preset instructions does not qualify on its own.
+
+interpersonal: Teaches, counsels, negotiates, serves, advises, or communicates with others to coordinate work. Work-related handoffs count when the text explicitly describes exchanging information or coordinating with a named role or group, such as dispatchers or another trade. Simply working near other people does not qualify.
+
+managerial: Directs, assigns, or supervises other people's work. Staff, contractors, volunteers, and interns can qualify. Explicit responsibility for supervising the execution of work, such as installation or maintenance, can qualify even when the workers' titles are unspecified. Coordinating logistics or schedules, supervising ordinary classroom activity, and checking equipment performance do not qualify on their own.
+
+manual: Performs substantive hands-on physical work, such as assembling, installing, repairing, moving materials, operating machinery, or doing a hands-on clinical procedure. Routine handling of classroom or office materials and collecting a sample without an identified hands-on procedure do not qualify on their own. For testing, look for stated setup, operation, adjustment, or manipulation of physical equipment. Designing or testing a system without that detail does not establish manual work.
+
+Return a downloadable CSV with exactly these columns:
+onet_soc_code,technical,analytical,interpersonal,managerial,manual,notes
+
+Keep the original row order and occupation codes. Include one row per input occupation. In notes, cite a short phrase from llm_text for each 1 and explain any blank scores. Leave blank CSV cells empty. Verify that every input occupation code appears exactly once before returning the file.
